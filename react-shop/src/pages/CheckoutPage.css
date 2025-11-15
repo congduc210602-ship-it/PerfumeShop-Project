@@ -1,0 +1,250 @@
+/* src/pages/CheckoutPage.css */
+
+/* --- Layout Tổng Thể (Giống CartPage & ShopPage) --- */
+.cart-page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f8f9fa; /* Màu nền xám nhạt */
+}
+
+.cart-container {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cart-container h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 2rem;
+}
+
+/* --- Layout 2 Cột (Giống CartPage) --- */
+.cart-content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Cột trái: Form & Tóm tắt */
+.cart-items-list {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e9ecef;
+  padding: 2rem; /* Thêm padding cho form */
+  box-sizing: border-box;
+}
+
+/* Cột phải: Thanh toán */
+.cart-summary {
+  flex: 0 0 320px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e9ecef;
+  align-self: flex-start;
+  position: sticky;
+  top: 100px;
+}
+
+/* --- Tiêu đề h3 (Đồng bộ style) --- */
+.cart-items-list h3,
+.cart-summary h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #6c757d;
+  border-bottom: 1px solid #f1f3f5;
+  padding-bottom: 0.75rem;
+  margin: 0 0 1.5rem 0;
+}
+.cart-items-list h3 {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Nút Bấm Chính (Màu tím) --- */
+.checkout-btn {
+  display: inline-block;
+  background-color: #4F46E5;
+  color: #ffffff;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%; /* Cho nút full chiều rộng */
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.checkout-btn:hover:not(:disabled) {
+  background-color: #4338CA;
+}
+.checkout-btn:disabled {
+  background-color: #a5b4fc; /* Màu tím nhạt khi loading */
+  cursor: not-allowed;
+}
+
+
+/* --- CSS CHO FORM (Cột trái) --- */
+.checkout-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.checkout-form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.checkout-form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box; /* Quan trọng */
+}
+
+.checkout-form-group input:focus {
+  border-color: #a78bfa; /* Màu tím focus */
+  box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.2);
+  outline: none;
+}
+
+/* --- CSS Tóm Tắt Đơn Hàng (Cột trái) --- */
+.checkout-item-summary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #495057;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1f3f5;
+}
+.checkout-item-summary span:last-child {
+  font-weight: 500;
+  white-space: nowrap;
+  padding-left: 1rem;
+}
+
+.checkout-total-summary {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+/* --- CSS Phương Thức Thanh Toán (Cột phải) --- */
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Dùng :has() để style khi radio bên trong được check */
+.payment-option:has(input:checked) {
+  border-color: #4F46E5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.payment-option input {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.payment-option img {
+  width: 32px;
+  height: 32px;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.payment-option span {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.payment-option.disabled {
+  cursor: not-allowed;
+  background-color: #f8f9fa;
+  color: #adb5bd;
+}
+
+/* --- CSS Lỗi (Cột phải) --- */
+.checkout-error-message {
+  color: #dc3545;
+  background-color: #fbebee;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+
+/* --- Responsive (Giống CartPage) --- */
+@media (max-width: 992px) {
+  .cart-container {
+    padding: 0 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .cart-content {
+    flex-direction: column; /* Xếp chồng */
+    gap: 1.5rem;
+  }
+  .cart-summary {
+    flex: 0 0 auto;
+    width: 100%;
+    position: static;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 0 1rem;
+    margin-top: 1rem;
+  }
+  .cart-items-list {
+    padding: 1.5rem; /* Giảm padding trên mobile */
+  }
+  .cart-container h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .payment-option span {
+    font-size: 0.9rem;
+  }
+}

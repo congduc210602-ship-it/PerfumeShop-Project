@@ -1,0 +1,93 @@
+.register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+}
+
+.register-box {
+  background: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.register-box h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 2rem;
+}
+
+.register-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.register-box input {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.register-box input:focus {
+  outline: none;
+  border-color: #4F46E5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.register-box button {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4F46E5;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.register-box button:hover {
+  background-color: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+/* Style cho thông báo lỗi/thành công */
+.form-error {
+  color: #d9534f;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.form-success {
+  color: #28a745;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* Style cho link chuyển đổi form */
+.form-toggle {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.form-toggle span {
+  color: #4F46E5;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.form-toggle span:hover {
+  text-decoration: underline;
+}

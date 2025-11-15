@@ -1,0 +1,214 @@
+/* src/pages/MyOrdersPage.css */
+
+.my-orders-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa; /* Nền xám nhạt */
+}
+
+.my-orders-container {
+  max-width: 1000px; /* Hẹp hơn trang shop, rộng hơn giỏ hàng */
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.my-orders-container h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 2rem;
+}
+
+/* Khi không có đơn hàng */
+.no-orders {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e9ecef;
+}
+.no-orders p {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+/* Dùng lại class nút bấm từ CartPage/CheckoutPage */
+.continue-shopping-btn {
+  display: inline-block;
+  background-color: #4F46E5;
+  color: #ffffff;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.continue-shopping-btn:hover {
+  background-color: #4338CA;
+}
+
+/* Danh sách đơn hàng */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Khoảng cách giữa các card đơn hàng */
+}
+
+.order-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e9ecef;
+  overflow: hidden; /* Để bo góc header */
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background-color: #f8f9fa; /* Nền header card hơi xám */
+  border-bottom: 1px solid #e9ecef;
+}
+
+.order-id {
+  font-weight: 600;
+  color: #212529;
+  font-size: 1.1rem;
+  display: block;
+}
+.order-date {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.order-status {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+.status-pending { background-color: #fff3cd; color: #856404; }
+.status-delivered { background-color: #d4edda; color: #155724; }
+.status-cancelled { background-color: #f8d7da; color: #721c24; }
+/* (Thêm các status khác nếu cần) */
+
+.order-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.order-item-summary {
+  display: flex;
+  /* justify-content: space-between; (Xóa dòng này) */
+  align-items: center;
+  font-size: 0.95rem;
+  color: #495057;
+  gap: 1rem; /* Thêm gap để tạo khoảng cách */
+}
+.order-item-image {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+.item-info {
+  flex: 1; /* Vẫn giữ flex: 1 */
+  font-weight: 500;
+}
+.item-qty {
+  width: 60px;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+.item-price {
+  width: 120px;
+  text-align: right;
+  font-weight: 500;
+  color: #212529;
+}
+
+.order-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+}
+
+.order-shipping-info p {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin: 0 0 0.25rem 0;
+}
+.order-shipping-info p strong {
+  color: #495057;
+}
+
+.order-total {
+  text-align: right;
+}
+.order-total span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #495057;
+}
+.order-total .total-amount {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4F46E5; /* Màu tím primary */
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .my-orders-container {
+    padding: 0 1rem;
+    margin-top: 1.5rem;
+  }
+  .my-orders-container h1 {
+    font-size: 1.75rem;
+  }
+  .order-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .order-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .order-total {
+    text-align: left;
+    border-top: 1px solid #e9ecef;
+    padding-top: 1rem;
+  }
+  .order-item-summary {
+    flex-wrap: wrap;
+  }
+  .item-info {
+    flex-basis: 100%;
+    margin-bottom: 0.25rem;
+  }
+  .item-qty {
+    flex: 1;
+    text-align: left;
+  }
+
+  
+}
